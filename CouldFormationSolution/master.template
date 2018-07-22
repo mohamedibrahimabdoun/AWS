@@ -1,0 +1,173 @@
+{
+    "AWSTemplateFormatVersion" : "2010-09-09",
+    "Description"              : "",
+    "Parameters"               : {
+        "DBName" : {
+            "Default" : "MyDatabase",
+            "Description" : "The database name",
+            "Type"        : "String",
+            "MinLength"   : "1",
+            "MaxLength"   : "64",
+            "AllowedPattern" : "[a-zA-Z][a-zA-Z0-9]*",
+            "ConstraintDescription" : "must begin with a letter and contain only alphanumeric characters."
+        },
+        "DBUser" : {
+            "NoEcho" : "true",
+            "Description" : "The database admin account username",
+            "Type"        : "String",
+            "MinLength"   : "1",
+            "MaxLength"   : "16",
+            "AllowedPattern" : "[a-zA-Z][a-zA-Z0-9]*",
+            "ConstraintDescription" : "must begin with a letter and contain only alphanumeric characters."
+        },
+        "DBPassword" : {
+            "NoEcho" : "true",
+            "Description" : "The database admin account password",
+            "Type"        : "String",
+            "MinLength"   : "1",
+            "MaxLength"   : "41",
+            "AllowedPattern" : "[a-zA-Z0-9]+",
+            "ConstraintDescription" : "must contain only alphanumeric characters."
+        },
+        "KeyName"    : {
+            "Description" : "Name of an existing EC2 key pair to enable SSH access to the instances",
+            "Type"        : "AWS::EC2::KeyPair::KeyName",
+            "ConstraintDescription" : "must be the name of an existing EC2 KeyPair."
+        },
+		    "SSLARN" : {
+           
+            "Description" : "SSL Certificate ARN",
+            "Type"        : "String"
+           
+        }
+    },
+    "Resources"                : {
+        "NetworkStack" : {
+            "Type" : "AWS::CloudFormation::Stack",
+            "Properties" : {
+                "TemplateURL" : "https://s3.us-east-1.amazonaws.com/candidate8bucket/networkstack.template",
+				 "Parameters"  : {
+                    "SSLARN" : {
+                        "Ref" : "SSLARN"
+                    }
+					}
+            }
+        },
+        "DBStack"      : {
+            "Type" : "AWS::CloudFormation::Stack",
+            "DependsOn" : "NetworkStack",
+            "Properties" : {
+                "TemplateURL" : "https://s3.us-east-1.amazonaws.com/candidate8bucket/databasestack.template",
+                "Parameters"  : {
+                    "DBName" : {
+                        "Ref" : "DBName"
+                    },
+                    "DBUser" : {
+                        "Ref" : "DBUser"
+                    },
+                    "DBPassword" : {
+                        "Ref" : "DBPassword"
+                    },
+                    "VPC"        : {
+                        "Fn::GetAtt" : [
+                            "NetworkStack",
+                            "Outputs.VPCID"
+                        ]
+                    },
+                    "PrivateSubnet1" : {
+                        "Fn::GetAtt" : [
+                            "NetworkStack",
+                            "Outputs.PrivateSubnet1"
+                        ]
+                    },
+                    "PrivateSubnet2" : {
+                        "Fn::GetAtt" : [
+                            "NetworkStack",
+                            "Outputs.PrivateSubnet2"
+                        ]
+                    }
+                }
+            }
+        },
+        "WebServerStack" : {
+            "Type" : "AWS::CloudFormation::Stack",
+            "DependsOn" : "DBStack",
+            "Properties" : {
+                "TemplateURL" : "https://s3.us-east-1.amazonaws.com/candidate8bucket/webserversstack.template",
+                "Parameters"  : {
+                    "KeyName" : {
+                        "Ref" : "KeyName"
+                    },
+                    "DBInstanceEndpointAddress" : {
+                        "Fn::GetAtt" : [
+                            "DBStack",
+                            "Outputs.MasterJDBCConnectionString"
+                        ]
+                    },
+                    "VPC"                       : {
+                        "Fn::GetAtt" : [
+                            "NetworkStack",
+                            "Outputs.VPCID"
+                        ]
+                    },
+                    "ELBName"                   : {
+                        "Fn::GetAtt" : [
+                            "NetworkStack",
+                            "Outputs.ELBName"
+                        ]
+                    },
+                    "WebServerSecurityGroup"    : {
+                        "Fn::GetAtt" : [
+                            "NetworkStack",
+                            "Outputs.WebServerSecurityGroup"
+                        ]
+                    },
+                    "PublicSubnets"             : {
+                        "Fn::Join" : [
+                            ",",
+                            [
+                                {
+                                    "Fn::GetAtt" : [
+                                        "NetworkStack",
+                                        "Outputs.PublicSubnet1"
+                                    ]
+                                },
+                                {
+                                    "Fn::GetAtt" : [
+                                        "NetworkStack",
+                                        "Outputs.PublicSubnet2"
+                                    ]
+                                }
+                            ]
+                        ]
+                    },
+                    "DBName"                    : {
+                        "Ref" : "DBName"
+                    },
+                    "DBUser"                    : {
+                        "Ref" : "DBUser"
+                    },
+                    "DBPassword"                : {
+                        "Ref" : "DBPassword"
+                    },
+                    "MasterDBHostName"          : {
+                        "Fn::GetAtt" : [
+                            "DBStack",
+                            "Outputs.MasterDBHostName"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "Outputs"                  : {
+        "WebsiteURL" : {
+            "Value" : {
+                "Fn::GetAtt" : [
+                    "NetworkStack",
+                    "Outputs.WebsiteURL"
+                ]
+            }
+        }
+    }
+}

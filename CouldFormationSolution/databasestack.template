@@ -1,0 +1,161 @@
+{
+    "AWSTemplateFormatVersion" : "2010-09-09",
+    "Description"              : "This Template will Create MYSQL DB in 2 Private Subnets ,SecuirtyGroup that allow every IP within 10.0.0.0/16 to access it",
+    "Parameters"               : {
+        "DBName" : {
+            "Default" : "MyDatabase",
+            "Description" : "The database name",
+            "Type"        : "String"
+        },
+        "DBUser" : {
+            "NoEcho" : "true",
+            "Description" : "The database admin account username",
+            "Type"        : "String",
+            "Default"     : "root"
+        },
+        "DBPassword" : {
+            "NoEcho" : "true",
+            "Description" : "The database admin account password",
+            "Type"        : "String",
+            "Default"     : "changeme"
+        },
+        "VPC"        : {
+            "Description" : "ID of the VPC ",
+            "Type"        : "String"
+        },
+        "PrivateSubnet1" : {
+            "Description" : "PrivateSubnet1 ",
+            "Type"        : "String"
+        },
+        "PrivateSubnet2" : {
+            "Description" : "PrivateSubnet1",
+            "Type"        : "String"
+        }
+    },
+    "Resources"                : {
+        "myDBSubnetGroup" : {
+            "Type" : "AWS::RDS::DBSubnetGroup",
+            "Properties" : {
+                "DBSubnetGroupDescription" : "description",
+                "SubnetIds"                : [
+                    {
+                        "Ref" : "PrivateSubnet1"
+                    },
+                    {
+                        "Ref" : "PrivateSubnet2"
+                    }
+                ],
+                "Tags"                     : [
+                    {
+                        "Key" : "String",
+                        "Value" : "String"
+                    }
+                ]
+            }
+        },
+        "DBEC2SecurityGroup" : {
+            "Type" : "AWS::EC2::SecurityGroup",
+            "Properties" : {
+                "GroupDescription" : "Open database for access",
+                "VpcId"            : {
+                    "Ref" : "VPC"
+                },
+                "SecurityGroupIngress" : [
+                    {
+                        "IpProtocol" : "tcp",
+                        "FromPort"   : "3306",
+                        "ToPort"     : "3306",
+                        "CidrIp"     : "10.0.0.0/16"
+                    }
+                ]
+            }
+        },
+        "MasterDB"           : {
+            "Type" : "AWS::RDS::DBInstance",
+            "Properties" : {
+                "DBName" : {
+                    "Ref" : "DBName"
+                },
+                "AllocatedStorage" : "5",
+                "DBInstanceClass"  : "db.t2.micro",
+                "Engine"           : "MySQL",
+                "EngineVersion"    : "5.7.17",
+                "AvailabilityZone" : {
+                    "Fn::Select" : [
+                        "2",
+                        {
+                            "Fn::GetAZs" : ""
+                        }
+                    ]
+                },
+                "MasterUsername"   : {
+                    "Ref" : "DBUser"
+                },
+                "MasterUserPassword" : {
+                    "Ref" : "DBPassword"
+                },
+                "Tags"               : [
+                    {
+                        "Key" : "Name",
+                        "Value" : "Trinimbus Database"
+                    }
+                ],
+                "DBSubnetGroupName"  : {
+                    "Ref" : "myDBSubnetGroup"
+                },
+                "VPCSecurityGroups"  : [
+                    {
+                        "Fn::GetAtt" : [
+                            "DBEC2SecurityGroup",
+                            "GroupId"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "Outputs"                  : {
+        "DBEC2SecurityGroup" : {
+            "Value" : {
+                "Ref" : "DBEC2SecurityGroup"
+            },
+            "Description" : "DBEC2SecurityGroup"
+        },
+        "MasterJDBCConnectionString" : {
+            "Description" : "JDBC connection string for the master database",
+            "Value"       : {
+                "Fn::Join" : [
+                    "",
+                    [
+                        "jdbc:mysql://",
+                        {
+                            "Fn::GetAtt" : [
+                                "MasterDB",
+                                "Endpoint.Address"
+                            ]
+                        },
+                        ":",
+                        {
+                            "Fn::GetAtt" : [
+                                "MasterDB",
+                                "Endpoint.Port"
+                            ]
+                        },
+                        "/",
+                        {
+                            "Ref" : "DBName"
+                        }
+                    ]
+                ]
+            }
+        },
+        "MasterDBHostName"           : {
+            "Value" : {
+                "Fn::GetAtt" : [
+                    "MasterDB",
+                    "Endpoint.Address"
+                ]
+            }
+        }
+    }
+}

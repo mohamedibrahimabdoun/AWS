@@ -1,0 +1,578 @@
+{
+    "AWSTemplateFormatVersion" : "2010-09-09",
+    "Description"              : "This Template creates 2 web servers,ELB and security group that allows HTTP and SSH access",
+    "Parameters"               : {
+        "KeyName" : {
+            "Description" : "Name of an existing EC2 key pair to enable SSH access to the instances",
+            "Type"        : "String"
+        },
+        "VPC"     : {
+            "Description" : "The VPC",
+            "Type"        : "String"
+        },
+        "PublicSubnets" : {
+            "Description" : "The PublicSubnets List",
+            "Type"        : "String"
+        },
+        "DBInstanceEndpointAddress" : {
+            "Default" : "MyDatabase",
+            "Description" : "The WordPress database name",
+            "Type"        : "String"
+        },
+        "DBName"                    : {
+            "Default" : "MyDatabase",
+            "Description" : "The WordPress database name",
+            "Type"        : "String"
+        },
+        "DBUser"                    : {
+            "NoEcho" : "true",
+            "Default" : "MyDatabase",
+            "Description" : "The WordPress database admin account user name",
+            "Type"        : "String"
+        },
+        "DBPassword"                : {
+            "Default" : "changeme",
+            "NoEcho"  : "true",
+            "Description" : "The WordPress database admin account password",
+            "Type"        : "String"
+        },
+        "MasterDBHostName"          : {
+            "Default" : "MyDatabase",
+            "Description" : "The WordPress Host",
+            "Type"        : "String"
+        },
+        "ELBName"                   : {
+            "Type" : "String",
+            "Description" : "ELB Logical Name"
+        },
+        "WebServerSecurityGroup"    : {
+            "Type" : "String"
+        }
+    },
+    "Mappings"                 : {
+        "AWSInstanceType2Arch" : {
+            "t1.micro" : {
+                "Arch" : "PV64"
+            },
+            "t2.micro" : {
+                "Arch" : "HVM64"
+            },
+            "t2.small" : {
+                "Arch" : "HVM64"
+            },
+            "t2.medium" : {
+                "Arch" : "HVM64"
+            },
+            "m1.small"  : {
+                "Arch" : "PV64"
+            },
+            "m1.medium" : {
+                "Arch" : "PV64"
+            },
+            "m1.large"  : {
+                "Arch" : "PV64"
+            },
+            "m1.xlarge" : {
+                "Arch" : "PV64"
+            },
+            "m2.xlarge" : {
+                "Arch" : "PV64"
+            },
+            "m2.2xlarge" : {
+                "Arch" : "PV64"
+            },
+            "m2.4xlarge" : {
+                "Arch" : "PV64"
+            },
+            "m3.medium"  : {
+                "Arch" : "HVM64"
+            },
+            "m3.large"   : {
+                "Arch" : "HVM64"
+            },
+            "m3.xlarge"  : {
+                "Arch" : "HVM64"
+            },
+            "m3.2xlarge" : {
+                "Arch" : "HVM64"
+            },
+            "c1.medium"  : {
+                "Arch" : "PV64"
+            },
+            "c1.xlarge"  : {
+                "Arch" : "PV64"
+            },
+            "c3.large"   : {
+                "Arch" : "HVM64"
+            },
+            "c3.xlarge"  : {
+                "Arch" : "HVM64"
+            },
+            "c3.2xlarge" : {
+                "Arch" : "HVM64"
+            },
+            "c3.4xlarge" : {
+                "Arch" : "HVM64"
+            },
+            "c3.8xlarge" : {
+                "Arch" : "HVM64"
+            },
+            "g2.2xlarge" : {
+                "Arch" : "HVMG2"
+            },
+            "r3.large"   : {
+                "Arch" : "HVM64"
+            },
+            "r3.xlarge"  : {
+                "Arch" : "HVM64"
+            },
+            "r3.2xlarge" : {
+                "Arch" : "HVM64"
+            },
+            "r3.4xlarge" : {
+                "Arch" : "HVM64"
+            },
+            "r3.8xlarge" : {
+                "Arch" : "HVM64"
+            },
+            "i2.xlarge"  : {
+                "Arch" : "HVM64"
+            },
+            "i2.2xlarge" : {
+                "Arch" : "HVM64"
+            },
+            "i2.4xlarge" : {
+                "Arch" : "HVM64"
+            },
+            "i2.8xlarge" : {
+                "Arch" : "HVM64"
+            },
+            "hi1.4xlarge" : {
+                "Arch" : "HVM64"
+            },
+            "hs1.8xlarge" : {
+                "Arch" : "HVM64"
+            },
+            "cr1.8xlarge" : {
+                "Arch" : "HVM64"
+            },
+            "cc2.8xlarge" : {
+                "Arch" : "HVM64"
+            }
+        },
+        "AWSRegionArch2AMI"    : {
+            "us-east-1" : {
+                "PV64" : "ami-50842d38",
+                "HVM64" : "ami-08842d60",
+                "HVMG2" : "ami-3a329952"
+            },
+            "us-west-2" : {
+                "PV64" : "ami-af86c69f",
+                "HVM64" : "ami-8786c6b7",
+                "HVMG2" : "ami-47296a77"
+            },
+            "us-west-1" : {
+                "PV64" : "ami-c7a8a182",
+                "HVM64" : "ami-cfa8a18a",
+                "HVMG2" : "ami-331b1376"
+            },
+            "eu-west-1" : {
+                "PV64" : "ami-aa8f28dd",
+                "HVM64" : "ami-748e2903",
+                "HVMG2" : "ami-00913777"
+            },
+            "ap-southeast-1" : {
+                "PV64" : "ami-20e1c572",
+                "HVM64" : "ami-d6e1c584",
+                "HVMG2" : "ami-fabe9aa8"
+            },
+            "ap-northeast-1" : {
+                "PV64" : "ami-21072820",
+                "HVM64" : "ami-35072834",
+                "HVMG2" : "ami-5dd1ff5c"
+            },
+            "ap-southeast-2" : {
+                "PV64" : "ami-8b4724b1",
+                "HVM64" : "ami-fd4724c7",
+                "HVMG2" : "ami-e98ae9d3"
+            },
+            "sa-east-1"      : {
+                "PV64" : "ami-9d6cc680",
+                "HVM64" : "ami-956cc688",
+                "HVMG2" : "NOT_SUPPORTED"
+            },
+            "cn-north-1"     : {
+                "PV64" : "ami-a857c591",
+                "HVM64" : "ami-ac57c595",
+                "HVMG2" : "NOT_SUPPORTED"
+            },
+            "eu-central-1"   : {
+                "PV64" : "ami-a03503bd",
+                "HVM64" : "ami-b43503a9",
+                "HVMG2" : "ami-b03503ad"
+            }
+        },
+        "AWSRegion2AZ"         : {
+            "ap-northeast-1" : {
+                "Name" : "Tokyo",
+                "NumAZs" : "2",
+                "AZ0"    : "0",
+                "AZ1"    : "1",
+                "AZ2"    : "0"
+            },
+            "ap-northeast-2" : {
+                "Name" : "Seoul",
+                "NumAZs" : "2",
+                "AZ0"    : "0",
+                "AZ1"    : "1",
+                "AZ2"    : "0"
+            },
+            "ap-south-1"     : {
+                "Name" : "Mumbai",
+                "NumAZs" : "2",
+                "AZ0"    : "0",
+                "AZ1"    : "1",
+                "AZ2"    : "0"
+            },
+            "ap-southeast-1" : {
+                "Name" : "Singapore",
+                "NumAZs" : "2",
+                "AZ0"    : "0",
+                "AZ1"    : "1",
+                "AZ2"    : "0"
+            },
+            "ap-southeast-2" : {
+                "Name" : "Sydney",
+                "NumAZs" : "3",
+                "AZ0"    : "0",
+                "AZ1"    : "1",
+                "AZ2"    : "2"
+            },
+            "ca-central-1"   : {
+                "Name" : "Central",
+                "NumAZs" : "2",
+                "AZ0"    : "0",
+                "AZ1"    : "1",
+                "AZ2"    : "0"
+            },
+            "eu-central-1"   : {
+                "Name" : "Frankfurt",
+                "NumAZs" : "2",
+                "AZ0"    : "0",
+                "AZ1"    : "1",
+                "AZ2"    : "0"
+            },
+            "eu-west-1"      : {
+                "Name" : "Ireland",
+                "NumAZs" : "3",
+                "AZ0"    : "0",
+                "AZ1"    : "1",
+                "AZ2"    : "2"
+            },
+            "eu-west-2"      : {
+                "Name" : "London",
+                "NumAZs" : "2",
+                "AZ0"    : "0",
+                "AZ1"    : "1",
+                "AZ2"    : "0"
+            },
+            "sa-east-1"      : {
+                "Name" : "Sao Paulo",
+                "NumAZs" : "3",
+                "AZ0"    : "0",
+                "AZ1"    : "1",
+                "AZ2"    : "2"
+            },
+            "us-east-1"      : {
+                "Name" : "N. Virgina",
+                "NumAZs" : "4",
+                "AZ0"    : "0",
+                "AZ1"    : "1",
+                "AZ2"    : "2"
+            },
+            "us-east-2"      : {
+                "Name" : "Ohio",
+                "NumAZs" : "3",
+                "AZ0"    : "0",
+                "AZ1"    : "1",
+                "AZ2"    : "2"
+            },
+            "us-west-1"      : {
+                "Name" : "N. California",
+                "NumAZs" : "2",
+                "AZ0"    : "0",
+                "AZ1"    : "1",
+                "AZ2"    : "0"
+            },
+            "us-west-2"      : {
+                "Name" : "Oregon",
+                "NumAZs" : "3",
+                "AZ0"    : "0",
+                "AZ1"    : "1",
+                "AZ2"    : "2"
+            }
+        }
+    },
+    "Resources"                : {
+        "WebServerASG" : {
+            "Type" : "AWS::AutoScaling::AutoScalingGroup",
+            "Properties" : {
+                "LoadBalancerNames" : [
+                    {
+                        "Ref" : "ELBName"
+                    }
+                ],
+                "VPCZoneIdentifier" : [
+                    {
+                        "Ref" : "PublicSubnets"
+                    }
+                ],
+                "AvailabilityZones" : [
+                    {
+                        "Fn::Select" : [
+                            "0",
+                            {
+                                "Fn::GetAZs" : ""
+                            }
+                        ]
+                    },
+                    {
+                        "Fn::Select" : [
+                            "1",
+                            {
+                                "Fn::GetAZs" : ""
+                            }
+                        ]
+                    }
+                ],
+                "LaunchConfigurationName" : {
+                    "Ref" : "LaunchConfig"
+                },
+                "MinSize"                 : "2",
+                "MaxSize"                 : "5",
+                "DesiredCapacity"         : "2"
+            },
+            "CreationPolicy" : {
+                "ResourceSignal" : {
+                    "Timeout" : "PT15M"
+                }
+            },
+            "UpdatePolicy"   : {
+                "AutoScalingRollingUpdate" : {
+                    "MinInstancesInService" : "1",
+                    "MaxBatchSize"          : "1",
+                    "PauseTime"             : "PT15M",
+                    "WaitOnResourceSignals" : "true"
+                }
+            }
+        },
+        "LaunchConfig" : {
+            "Type" : "AWS::AutoScaling::LaunchConfiguration",
+            "Metadata" : {
+                "AWS::CloudFormation::Init" : {
+                    "configSets" : {
+                        "wordpress_install" : [
+                            "install_cfn",
+                            "install_wordpress"
+                        ]
+                    },
+                    "install_cfn" : {
+                        "files" : {
+                            "/etc/cfn/cfn-hup.conf" : {
+                                "content" : {
+                                    "Fn::Join" : [
+                                        "",
+                                        [
+                                            "[main]\n",
+                                            "stack=",
+                                            {
+                                                "Ref" : "AWS::StackId"
+                                            },
+                                            "\n",
+                                            "region=",
+                                            {
+                                                "Ref" : "AWS::Region"
+                                            },
+                                            "\n"
+                                        ]
+                                    ]
+                                },
+                                "mode"    : "000400",
+                                "owner"   : "root",
+                                "group"   : "root"
+                            },
+                            "/etc/cfn/hooks.d/cfn-auto-reloader.conf" : {
+                                "content" : {
+                                    "Fn::Join" : [
+                                        "",
+                                        [
+                                            "[cfn-auto-reloader-hook]\n",
+                                            "triggers=post.update\n",
+                                            "path=Resources.LaunchConfig.Metadata.AWS::CloudFormation::Init\n",
+                                            "action=/opt/aws/bin/cfn-init -v ",
+                                            "         --stack ",
+                                            {
+                                                "Ref" : "AWS::StackName"
+                                            },
+                                            "         --resource LaunchConfig ",
+                                            "         --configsets wordpress_install ",
+                                            "         --region ",
+                                            {
+                                                "Ref" : "AWS::Region"
+                                            },
+                                            "\n"
+                                        ]
+                                    ]
+                                },
+                                "mode"    : "000400",
+                                "owner"   : "root",
+                                "group"   : "root"
+                            }
+                        },
+                        "services" : {
+                            "sysvinit" : {
+                                "cfn-hup" : {
+                                    "enabled" : "true",
+                                    "ensureRunning" : "true",
+                                    "files"         : [
+                                        "/etc/cfn/cfn-hup.conf",
+                                        "/etc/cfn/hooks.d/cfn-auto-reloader.conf"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "install_wordpress" : {
+                        "packages" : {
+                            "yum" : {
+                                "php" : [
+                                ],
+                                "php-mysql" : [
+                                ],
+                                "mysql"     : [
+                                ],
+                                "httpd"     : [
+                                ]
+                            }
+                        },
+                        "sources"  : {
+                            "/var/www/html" : "http://wordpress.org/latest.tar.gz"
+                        },
+                        "files"    : {
+                            "/tmp/create-wp-config" : {
+                                "content" : {
+                                    "Fn::Join" : [
+                                        "",
+                                        [
+                                            "#!/bin/bash\n",
+                                            "cp /var/www/html/wordpress/wp-config-sample.php /var/www/html/wordpress/wp-config.php\n",
+                                            "sed -i \"s/'database_name_here'/'",
+                                            {
+                                                "Ref" : "DBName"
+                                            },
+                                            "'/g\" wp-config.php\n",
+                                            "sed -i \"s/'username_here'/'",
+                                            {
+                                                "Ref" : "DBUser"
+                                            },
+                                            "'/g\" wp-config.php\n",
+                                            "sed -i \"s/'password_here'/'",
+                                            {
+                                                "Ref" : "DBPassword"
+                                            },
+                                            "'/g\" wp-config.php\n",
+                                            "sed -i \"s/'localhost'/'",
+                                            {
+                                                "Ref" : "MasterDBHostName"
+                                            },
+                                            "'/g\" wp-config.php\n"
+                                        ]
+                                    ]
+                                },
+                                "mode"    : "000500",
+                                "owner"   : "root",
+                                "group"   : "root"
+                            }
+                        },
+                        "commands" : {
+                            "01_configure_wordpress" : {
+                                "command" : "/tmp/create-wp-config",
+                                "cwd"     : "/var/www/html/wordpress"
+                            }
+                        },
+                        "services" : {
+                            "sysvinit" : {
+                                "httpd" : {
+                                    "enabled" : "true",
+                                    "ensureRunning" : "true"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "Properties" : {
+                "ImageId" : {
+                    "Fn::FindInMap" : [
+                        "AWSRegionArch2AMI",
+                        {
+                            "Ref" : "AWS::Region"
+                        },
+                        {
+                            "Fn::FindInMap" : [
+                                "AWSInstanceType2Arch",
+                                "t2.micro",
+                                "Arch"
+                            ]
+                        }
+                    ]
+                },
+                "InstanceType" : "t2.micro",
+                "SecurityGroups" : [
+                    {
+                        "Ref" : "WebServerSecurityGroup"
+                    }
+                ],
+                "KeyName"        : {
+                    "Ref" : "KeyName"
+                },
+                "UserData"       : {
+                    "Fn::Base64" : {
+                        "Fn::Join" : [
+                            "",
+                            [
+                                "#!/bin/bash -xe\n",
+                                "yum update -y aws* \n",
+                                "/opt/aws/bin/cfn-init -v ",
+                                "         --stack ",
+                                {
+                                    "Ref" : "AWS::StackName"
+                                },
+                                "         --resource LaunchConfig ",
+                                "         --configsets wordpress_install ",
+                                "         --region ",
+                                {
+                                    "Ref" : "AWS::Region"
+                                },
+                                "\n",
+                                "/opt/aws/bin/cfn-signal -e $? ",
+                                "         --stack ",
+                                {
+                                    "Ref" : "AWS::StackName"
+                                },
+                                "         --resource WebServerASG ",
+                                "         --region ",
+                                {
+                                    "Ref" : "AWS::Region"
+                                },
+                                "\n"
+                            ]
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "Outputs"                  : {
+    }
+}

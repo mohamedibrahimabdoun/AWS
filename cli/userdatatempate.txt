@@ -1,0 +1,21 @@
+#!/bin/bash -xe
+sudo yum install -y  php php-mysql mysql mysql-server mysql-libs httpd
+sudo service httpd start
+sudo service mysqld start 
+sudo chkconfig httpd on
+sudo chkconfig mysqld on
+sudo wget  -O /var/www/html/lastest.tar.gz  http://wordpress.org/latest.tar.gz
+sudo tar xfz /var/www/html/lastest.tar.gz -C /var/www/html/
+sudo cp /var/www/html/wordpress/wp-config-sample.php /var/www/html/wordpress/wp-config.php
+cd /var/www/html/wordpress/
+sudo perl -pi -e "s/database_name_here/DBNAMEvalue/g" wp-config.php
+sudo perl -pi -e "s/username_here/DBUSERNAMEvalue/g" wp-config.php
+sudo perl -pi -e "s/password_here/DBPASSWORDvalue/g" wp-config.php
+sudo perl -pi -e "s/localhost/MasterDBHostNamevalue/g" wp-config.php
+sudo chmod 500 /var/www/html/wordpress/
+sudo chown -R apache /var/www
+sudo chgrp -R apache /var/www
+sudo chmod 2775 /var/www
+#sudo service httpd restart
+
+mysql -u DBUSERNAMEvalue  -pDBPASSWORDvalue -h MasterDBHostNamevalue  --execute="CREATE database DBNAMEvalue;"

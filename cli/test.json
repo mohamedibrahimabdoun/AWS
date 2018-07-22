@@ -1,0 +1,1 @@
+{u'VpcId': u'vpc-07dac97e', u'InstanceTenancy': u'default', u'Tags': [{u'Value': u'candidate8vpc', u'Key': u'Name'}], u'State': u'available', u'DhcpOptionsId': u'dopt-495ae52e', u'CidrBlock': u'10.0.0.0/16', u'IsDefault': False}

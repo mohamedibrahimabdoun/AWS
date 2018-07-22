@@ -1,0 +1,572 @@
+VPC ID:vpc-d8aab9a1
+VPC ID: [vpc-d8aab9a1 ]
+VPC ID: [vpc-d8aab9a1]
+=======================================================================================================
+==================================Script Started=======================================================
+==================================VPC Information=======================================================
+VPC ID: [vpc-174b596e]
+Publicsubnet1 ID: [subnet-adf157c9]
+Publicsubnet2 ID: [subnet-4f142263]
+PrivateSubnet1 ID: [subnet-4603f40d]
+PrivateSubnet2 ID: [subnet-2e567d74]
+==================================Routing Information===================================================
+InternetGatewayId ID: [igw-404fa539]
+PublicRouteTable ID: [rtb-40421c3b]
+PublicSubnet1RouteTableAssociation ID: [rtbassoc-32321048]
+PublicSubnet2RouteTableAssociation ID: [rtbassoc-de3210a4]
+PrivateRouteTable ID: [rtb-c07e20bb]
+PrivateSubnet1RouteTableAssociation ID: [rtbassoc-cd290bb7]
+PrivateSubnet2RouteTableAssociation ID: [rtbassoc-943614ee]
+==================================VPC Information Ended=======================================================
+==================================ELB Information STarted=======================================================
+WebServerSecurityGroup ID: [sg-fab80a89]
+ELBName DNSName: [WebELB-219079800.us-east-1.elb.amazonaws.com]
+==================================ELB Information Finished=======================================================
+==================================DATABASE Information Started=======================================================
+DBEC2SecurityGroup Id: [sg-88ba08fb]
+myDBSubnetGroup Name: [mydbsubnetgroup]
+=======================================================================================================
+==================================Script Started=======================================================
+==================================VPC Information=======================================================
+===> Modifying PublicSubnets
+VPC ID: [vpc-43fee33a]
+Publicsubnet1 ID: [subnet-a2389ec6]
+Publicsubnet2 ID: [subnet-91eadbbd]
+PrivateSubnet1 ID: [subnet-e141b7aa]
+PrivateSubnet2 ID: [subnet-98042ec2]
+==================================Routing Information===================================================
+InternetGatewayId ID: [igw-c3a85cba]
+PublicRouteTable ID: [rtb-5e87dd25]
+PublicSubnet1RouteTableAssociation ID: [rtbassoc-e59fb39f]
+PublicSubnet2RouteTableAssociation ID: [rtbassoc-f68aa68c]
+PrivateRouteTable ID: [rtb-d284dea9]
+PrivateSubnet1RouteTableAssociation ID: [rtbassoc-b280acc8]
+PrivateSubnet2RouteTableAssociation ID: [rtbassoc-0d86aa77]
+==================================VPC Information Ended=======================================================
+==================================ELB Information STarted=======================================================
+WebServerSecurityGroup ID: [sg-d767dfa4]
+ELBName DNSName: [WebELB-2112931966.us-east-1.elb.amazonaws.com]
+==================================ELB Information Finished=======================================================
+==================================DATABASE Information Started=======================================================
+DBEC2SecurityGroup Id: [sg-8764dcf4]
+myDBSubnetGroup Name: [mydbsubnetgroup]
+=======================================================================================================
+==================================Script Started=======================================================
+==================================VPC Information=======================================================
+VPC ID: [vpc-16e8f56f]
+Publicsubnet1 ID: [subnet-1d04a279]
+Publicsubnet2 ID: [subnet-23d9e80f]
+PrivateSubnet1 ID: [subnet-b4b140ff]
+PrivateSubnet2 ID: [subnet-fe153fa4]
+==================================Routing Information===================================================
+InternetGatewayId ID: [igw-ba9d69c3]
+PublicRouteTable ID: [rtb-49c69c32]
+PublicSubnet1RouteTableAssociation ID: [rtbassoc-88624df2]
+PublicSubnet2RouteTableAssociation ID: [rtbassoc-b57956cf]
+PrivateRouteTable ID: [rtb-e7c69c9c]
+PrivateSubnet1RouteTableAssociation ID: [rtbassoc-ab7e51d1]
+PrivateSubnet2RouteTableAssociation ID: [rtbassoc-66624d1c]
+==================================VPC Information Ended=======================================================
+==================================ELB Information STarted=======================================================
+WebServerSecurityGroup ID: [sg-3704bc44]
+ELBName DNSName: [WebELB-160136167.us-east-1.elb.amazonaws.com]
+==================================ELB Information Finished=======================================================
+==================================DATABASE Information Started=======================================================
+DBEC2SecurityGroup Id: [sg-a80eb6db]
+myDBSubnetGroup Name: [mydbsubnetgroup]
+=======================================================================================================
+==================================Script Started=======================================================
+==================================VPC Information=======================================================
+VPC ID: [vpc-85eaf7fc]
+Publicsubnet1 ID: [subnet-370bad53]
+Publicsubnet2 ID: [subnet-48d8e964]
+PrivateSubnet1 ID: [subnet-aebc4de5]
+PrivateSubnet2 ID: [subnet-a8173df2]
+==================================Routing Information===================================================
+InternetGatewayId ID: [igw-37996d4e]
+PublicRouteTable ID: [rtb-6ef4ae15]
+PublicSubnet1RouteTableAssociation ID: [rtbassoc-5747682d]
+PublicSubnet2RouteTableAssociation ID: [rtbassoc-624d6218]
+PrivateRouteTable ID: [rtb-b4e9b3cf]
+PrivateSubnet1RouteTableAssociation ID: [rtbassoc-1048676a]
+PrivateSubnet2RouteTableAssociation ID: [rtbassoc-1748676d]
+==================================VPC Information Ended=======================================================
+==================================ELB Information STarted=======================================================
+WebServerSecurityGroup ID: [sg-4ce55e3f]
+ELBName DNSName: [WebELB-2125916198.us-east-1.elb.amazonaws.com]
+==================================ELB Information Finished=======================================================
+==================================DATABASE Information Started=======================================================
+DBEC2SecurityGroup Id: [sg-32e55e41]
+myDBSubnetGroup Name: [mydbsubnetgroup]
+=======================================================================================================
+==================================Script Started=======================================================
+==================================VPC Information=======================================================
+VPC ID: [vpc-2689945f]
+Publicsubnet1 ID: [subnet-1719bf73]
+Publicsubnet2 ID: [subnet-bab38296]
+PrivateSubnet1 ID: [subnet-a89b6ae3]
+PrivateSubnet2 ID: [subnet-04fed45e]
+==================================Routing Information===================================================
+InternetGatewayId ID: [igw-d7f80cae]
+PublicRouteTable ID: [rtb-b22d08c9]
+PublicSubnet1RouteTableAssociation ID: [rtbassoc-d93916a3]
+PublicSubnet2RouteTableAssociation ID: [rtbassoc-b9351ac3]
+PrivateRouteTable ID: [rtb-803411fb]
+PrivateSubnet1RouteTableAssociation ID: [rtbassoc-0a321d70]
+PrivateSubnet2RouteTableAssociation ID: [rtbassoc-8a3916f0]
+==================================VPC Information Ended=======================================================
+==================================ELB Information STarted=======================================================
+WebServerSecurityGroup ID: [sg-c363d8b0]
+ELBName DNSName: [WebELB-177947291.us-east-1.elb.amazonaws.com]
+==================================ELB Information Finished=======================================================
+==================================DATABASE Information Started=======================================================
+DBEC2SecurityGroup Id: [sg-0762d974]
+myDBSubnetGroup Name: [mydbsubnetgroup]
+=======================================================================================================
+==================================Script Started=======================================================
+==================================VPC Information=======================================================
+VPC ID: [vpc-40a9b439]
+Publicsubnet1 ID: [subnet-f8eb4a9c]
+Publicsubnet2 ID: [subnet-7e91a052]
+PrivateSubnet1 ID: [subnet-6589782e]
+PrivateSubnet2 ID: [subnet-4fc5ef15]
+==================================Routing Information===================================================
+InternetGatewayId ID: [igw-21ec1858]
+PublicRouteTable ID: [rtb-53fbde28]
+PublicSubnet1RouteTableAssociation ID: [rtbassoc-70e6c90a]
+PublicSubnet2RouteTableAssociation ID: [rtbassoc-ffe8c785]
+PrivateRouteTable ID: [rtb-f6f3d68d]
+PrivateSubnet1RouteTableAssociation ID: [rtbassoc-a0e3ccda]
+PrivateSubnet2RouteTableAssociation ID: [rtbassoc-ade1ced7]
+==================================VPC Information Ended=======================================================
+==================================ELB Information STarted=======================================================
+WebServerSecurityGroup ID: [sg-06fc4675]
+ELBName DNSName: [WebELB-1858658231.us-east-1.elb.amazonaws.com]
+==================================ELB Information Finished=======================================================
+==================================DATABASE Information Started=======================================================
+DBEC2SecurityGroup Id: [sg-3eee544d]
+myDBSubnetGroup Name: [mydbsubnetgroup]
+=======================================================================================================
+==================================Script Started=======================================================
+==================================VPC Information=======================================================
+VPC ID: [vpc-7fadb006]
+Publicsubnet1 ID: [subnet-86e647e2]
+Publicsubnet2 ID: [subnet-ab90a187]
+PrivateSubnet1 ID: [subnet-3f8e7f74]
+PrivateSubnet2 ID: [subnet-6ac7ed30]
+==================================Routing Information===================================================
+InternetGatewayId ID: [igw-28ee1a51]
+PublicRouteTable ID: [rtb-c4c0e5bf]
+PublicSubnet1RouteTableAssociation ID: [rtbassoc-d7fdd2ad]
+PublicSubnet2RouteTableAssociation ID: [rtbassoc-e0e0cf9a]
+PrivateRouteTable ID: [rtb-fcc1e487]
+PrivateSubnet1RouteTableAssociation ID: [rtbassoc-14fcd36e]
+PrivateSubnet2RouteTableAssociation ID: [rtbassoc-b9ffd0c3]
+==================================VPC Information Ended=======================================================
+==================================ELB Information STarted=======================================================
+WebServerSecurityGroup ID: [sg-f1ec5682]
+ELBName DNSName: [WebELB-1167684843.us-east-1.elb.amazonaws.com]
+==================================ELB Information Finished=======================================================
+==================================DATABASE Information Started=======================================================
+DBEC2SecurityGroup Id: [sg-2be05a58]
+myDBSubnetGroup Name: [mydbsubnetgroup]
+=======================================================================================================
+==================================Script Started=======================================================
+==================================VPC Information=======================================================
+VPC ID: [vpc-94a5b8ed]
+Publicsubnet1 ID: [subnet-0ae8496e]
+Publicsubnet2 ID: [subnet-12ae9f3e]
+PrivateSubnet1 ID: [subnet-77f1003c]
+PrivateSubnet2 ID: [subnet-71d8f22b]
+==================================Routing Information===================================================
+InternetGatewayId ID: [igw-60ef1b19]
+PublicRouteTable ID: [rtb-e5c1e49e]
+PublicSubnet1RouteTableAssociation ID: [rtbassoc-d2e5caa8]
+PublicSubnet2RouteTableAssociation ID: [rtbassoc-96e3ccec]
+PrivateRouteTable ID: [rtb-14fbde6f]
+PrivateSubnet1RouteTableAssociation ID: [rtbassoc-d9e0cfa3]
+PrivateSubnet2RouteTableAssociation ID: [rtbassoc-b5ffd0cf]
+==================================VPC Information Ended=======================================================
+==================================ELB Information STarted=======================================================
+WebServerSecurityGroup ID: [sg-a7e05ad4]
+ELBName DNSName: [WebELB-880904189.us-east-1.elb.amazonaws.com]
+==================================ELB Information Finished=======================================================
+==================================DATABASE Information Started=======================================================
+DBEC2SecurityGroup Id: [sg-78e65c0b]
+myDBSubnetGroup Name: []
+=======================================================================================================
+==================================Script Started=======================================================
+==================================VPC Information=======================================================
+VPC ID: [vpc-75aab70c]
+Publicsubnet1 ID: [subnet-a9f150cd]
+Publicsubnet2 ID: [subnet-e491a0c8]
+PrivateSubnet1 ID: [subnet-52867719]
+PrivateSubnet2 ID: [subnet-0fd9f355]
+==================================Routing Information===================================================
+InternetGatewayId ID: [igw-2bd02452]
+PublicRouteTable ID: [rtb-72c2e709]
+PublicSubnet1RouteTableAssociation ID: [rtbassoc-77fad50d]
+PublicSubnet2RouteTableAssociation ID: [rtbassoc-3efbd444]
+PrivateRouteTable ID: [rtb-71c2e70a]
+PrivateSubnet1RouteTableAssociation ID: [rtbassoc-83e1cef9]
+PrivateSubnet2RouteTableAssociation ID: [rtbassoc-7cfdd206]
+==================================VPC Information Ended=======================================================
+==================================ELB Information STarted=======================================================
+WebServerSecurityGroup ID: [sg-36da6045]
+ELBName DNSName: [WebELB-456348227.us-east-1.elb.amazonaws.com]
+==================================ELB Information Finished=======================================================
+==================================DATABASE Information Started=======================================================
+DBEC2SecurityGroup Id: [sg-dfdf65ac]
+myDBSubnetGroup Name: [mydbsubnetgroup]
+=======================================================================================================
+==================================Script Started=======================================================
+==================================VPC Information=======================================================
+VPC ID: [vpc-d55b47ac]
+Publicsubnet1 ID: [subnet-f8fd5c9c]
+Publicsubnet2 ID: [subnet-3599a819]
+PrivateSubnet1 ID: [subnet-cff80984]
+PrivateSubnet2 ID: [subnet-75ab812f]
+==================================Routing Information===================================================
+InternetGatewayId ID: [igw-afd125d6]
+PublicRouteTable ID: [rtb-a583a6de]
+PublicSubnet1RouteTableAssociation ID: [rtbassoc-a8ddf2d2]
+PublicSubnet2RouteTableAssociation ID: [rtbassoc-fcd8f786]
+PrivateRouteTable ID: [rtb-e180a59a]
+PrivateSubnet1RouteTableAssociation ID: [rtbassoc-0edff074]
+PrivateSubnet2RouteTableAssociation ID: [rtbassoc-c9d6f9b3]
+==================================VPC Information Ended=======================================================
+==================================ELB Information STarted=======================================================
+WebServerSecurityGroup ID: [sg-7a883209]
+ELBName DNSName: [WebELB-517509423.us-east-1.elb.amazonaws.com]
+==================================ELB Information Finished=======================================================
+==================================DATABASE Information Started=======================================================
+DBEC2SecurityGroup Id: [sg-c48c36b7]
+myDBSubnetGroup Name: [mydbsubnetgroup]
+=======================================================================================================
+==================================Script Started=======================================================
+==================================VPC Information=======================================================
+VPC ID: [vpc-546f732d]
+Publicsubnet1 ID: [subnet-dec766ba]
+Publicsubnet2 ID: [subnet-637d4d4f]
+PrivateSubnet1 ID: [subnet-d9d22392]
+PrivateSubnet2 ID: [subnet-f9b993a3]
+==================================Routing Information===================================================
+InternetGatewayId ID: [igw-c53ecabc]
+PublicRouteTable ID: [rtb-7a371301]
+PublicSubnet1RouteTableAssociation ID: [rtbassoc-5c99b626]
+PublicSubnet2RouteTableAssociation ID: [rtbassoc-f283ac88]
+PrivateRouteTable ID: [rtb-d13410aa]
+PrivateSubnet1RouteTableAssociation ID: [rtbassoc-249ab55e]
+PrivateSubnet2RouteTableAssociation ID: [rtbassoc-3b82ad41]
+==================================VPC Information Ended=======================================================
+==================================ELB Information STarted=======================================================
+WebServerSecurityGroup ID: [sg-64d65317]
+ELBName DNSName: [WebELB-432562977.us-east-1.elb.amazonaws.com]
+==================================ELB Information Finished=======================================================
+==================================DATABASE Information Started=======================================================
+DBEC2SecurityGroup Id: [sg-01d65372]
+myDBSubnetGroup Name: [mydbsubnetgroup]
+=======================================================================================================
+==================================Script Started=======================================================
+==================================VPC Information=======================================================
+VPC ID: [vpc-58130f21]
+Publicsubnet1 ID: [subnet-09a0016d]
+Publicsubnet2 ID: [subnet-f45262d8]
+PrivateSubnet1 ID: [subnet-3736c77c]
+PrivateSubnet2 ID: [subnet-8d9fb5d7]
+==================================Routing Information===================================================
+InternetGatewayId ID: [igw-ea1eea93]
+PublicRouteTable ID: [rtb-64a2861f]
+PublicSubnet1RouteTableAssociation ID: [rtbassoc-60557b1a]
+PublicSubnet2RouteTableAssociation ID: [rtbassoc-f757798d]
+PrivateRouteTable ID: [rtb-ebdbff90]
+PrivateSubnet1RouteTableAssociation ID: [rtbassoc-0f5f7175]
+PrivateSubnet2RouteTableAssociation ID: [rtbassoc-555a742f]
+==================================VPC Information Ended=======================================================
+==================================ELB Information STarted=======================================================
+WebServerSecurityGroup ID: [sg-00078273]
+ELBName DNSName: [WebELB-769373644.us-east-1.elb.amazonaws.com]
+==================================ELB Information Finished=======================================================
+==================================DATABASE Information Started=======================================================
+DBEC2SecurityGroup Id: [sg-5e00852d]
+myDBSubnetGroup Name: [mydbsubnetgroup]
+=======================================================================================================
+==================================Script Started=======================================================
+==================================VPC Information=======================================================
+VPC ID: [vpc-c03b27b9]
+Publicsubnet1 ID: [subnet-3572476f]
+Publicsubnet2 ID: [subnet-5aa9083e]
+PrivateSubnet1 ID: [subnet-69457545]
+PrivateSubnet2 ID: [subnet-c12bda8a]
+==================================Routing Information===================================================
+InternetGatewayId ID: [igw-a51eeadc]
+PublicRouteTable ID: [rtb-398baf42]
+PublicSubnet1RouteTableAssociation ID: [rtbassoc-af3a14d5]
+PublicSubnet2RouteTableAssociation ID: [rtbassoc-da3b15a0]
+PrivateRouteTable ID: [rtb-d796b2ac]
+PrivateSubnet1RouteTableAssociation ID: [rtbassoc-4e3b1534]
+PrivateSubnet2RouteTableAssociation ID: [rtbassoc-98230de2]
+==================================VPC Information Ended=======================================================
+==================================ELB Information STarted=======================================================
+WebServerSecurityGroup ID: [sg-4cc5413f]
+ELBName DNSName: [WebELB-620900461.us-east-1.elb.amazonaws.com]
+==================================ELB Information Finished=======================================================
+==================================DATABASE Information Started=======================================================
+DBEC2SecurityGroup Id: [sg-66c64215]
+myDBSubnetGroup Name: [mydbsubnetgroup]
+=======================================================================================================
+==================================Script Started=======================================================
+==================================VPC Information=======================================================
+VPC ID: [vpc-f3332f8a]
+Publicsubnet1 ID: [subnet-9c7c49c6]
+Publicsubnet2 ID: [subnet-80a405e4]
+PrivateSubnet1 ID: [subnet-994070b5]
+PrivateSubnet2 ID: [subnet-2a22d361]
+==================================Routing Information===================================================
+InternetGatewayId ID: [igw-e71bef9e]
+PublicRouteTable ID: [rtb-9e96b2e5]
+PublicSubnet1RouteTableAssociation ID: [rtbassoc-de3917a4]
+PublicSubnet2RouteTableAssociation ID: [rtbassoc-b33b15c9]
+PrivateRouteTable ID: [rtb-ab9db9d0]
+PrivateSubnet1RouteTableAssociation ID: [rtbassoc-28341a52]
+PrivateSubnet2RouteTableAssociation ID: [rtbassoc-4039173a]
+==================================VPC Information Ended=======================================================
+==================================ELB Information STarted=======================================================
+WebServerSecurityGroup ID: [sg-bdcb4fce]
+ELBName DNSName: [WebELB-274928383.us-east-1.elb.amazonaws.com]
+==================================ELB Information Finished=======================================================
+==================================DATABASE Information Started=======================================================
+DBEC2SecurityGroup Id: [sg-b2d256c1]
+myDBSubnetGroup Name: [mydbsubnetgroup]
+=======================================================================================================
+==================================Script Started=======================================================
+==================================VPC Information=======================================================
+VPC ID: [vpc-64b0af1d]
+Publicsubnet1 ID: [subnet-73437729]
+Publicsubnet2 ID: [subnet-09fa5a6d]
+PrivateSubnet1 ID: [subnet-912d1ebd]
+PrivateSubnet2 ID: [subnet-866393cd]
+==================================Routing Information===================================================
+InternetGatewayId ID: [igw-9954a3e0]
+PublicRouteTable ID: [rtb-018faf7a]
+PublicSubnet1RouteTableAssociation ID: [rtbassoc-b6654ecc]
+PublicSubnet2RouteTableAssociation ID: [rtbassoc-067a517c]
+PrivateRouteTable ID: [rtb-0692b27d]
+PrivateSubnet1RouteTableAssociation ID: [rtbassoc-9f6249e5]
+PrivateSubnet2RouteTableAssociation ID: [rtbassoc-5a614a20]
+==================================VPC Information Ended=======================================================
+==================================ELB Information STarted=======================================================
+WebServerSecurityGroup ID: [sg-8ef270fd]
+ELBName DNSName: []
+==================================ELB Information Finished=======================================================
+==================================DATABASE Information Started=======================================================
+DBEC2SecurityGroup Id: [sg-9af476e9]
+myDBSubnetGroup Name: [mydbsubnetgroup]
+=======================================================================================================
+==================================Script Started=======================================================
+==================================VPC Information=======================================================
+VPC ID: [vpc-20b4ab59]
+Publicsubnet1 ID: [subnet-965a6ecc]
+Publicsubnet2 ID: [subnet-0afc5c6e]
+PrivateSubnet1 ID: [subnet-ea1625c6]
+PrivateSubnet2 ID: [subnet-6a798921]
+==================================Routing Information===================================================
+InternetGatewayId ID: [igw-c651a6bf]
+PublicRouteTable ID: [rtb-bf9cbcc4]
+PublicSubnet1RouteTableAssociation ID: [rtbassoc-d77f54ad]
+PublicSubnet2RouteTableAssociation ID: [rtbassoc-3d614a47]
+PrivateRouteTable ID: [rtb-7d9fbf06]
+PrivateSubnet1RouteTableAssociation ID: [rtbassoc-4e654e34]
+PrivateSubnet2RouteTableAssociation ID: [rtbassoc-847a51fe]
+==================================VPC Information Ended=======================================================
+==================================ELB Information STarted=======================================================
+WebServerSecurityGroup ID: [sg-fe890b8d]
+ELBName DNSName: [WebELB-531752251.us-east-1.elb.amazonaws.com]
+==================================ELB Information Finished=======================================================
+==================================DATABASE Information Started=======================================================
+DBEC2SecurityGroup Id: [sg-6d8a081e]
+myDBSubnetGroup Name: [mydbsubnetgroup]
+=======================================================================================================
+==================================Script Started=======================================================
+==================================VPC Information=======================================================
+VPC ID: []
+Publicsubnet1 ID: []
+Publicsubnet2 ID: []
+PrivateSubnet1 ID: []
+PrivateSubnet2 ID: []
+=======================================================================================================
+==================================Script Started=======================================================
+==================================VPC Information=======================================================
+VPC ID: []
+Publicsubnet1 ID: []
+Publicsubnet2 ID: []
+PrivateSubnet1 ID: []
+PrivateSubnet2 ID: []
+==================================Routing Information===================================================
+InternetGatewayId ID: []
+PublicRouteTable ID: []
+PublicSubnet1RouteTableAssociation ID: []
+PublicSubnet2RouteTableAssociation ID: []
+PrivateRouteTable ID: []
+PrivateSubnet1RouteTableAssociation ID: []
+PrivateSubnet2RouteTableAssociation ID: []
+==================================VPC Information Ended=======================================================
+==================================ELB Information STarted=======================================================
+WebServerSecurityGroup ID: []
+ELBName DNSName: []
+==================================ELB Information Finished=======================================================
+==================================DATABASE Information Started=======================================================
+DBEC2SecurityGroup Id: []
+myDBSubnetGroup Name: []
+=======================================================================================================
+==================================Script Started=======================================================
+==================================VPC Information=======================================================
+VPC ID: [vpc-1aa3bc63]
+Publicsubnet1 ID: [subnet-70487c2a]
+Publicsubnet2 ID: [subnet-7fc3631b]
+PrivateSubnet1 ID: [subnet-913105cb]
+PrivateSubnet2 ID: [subnet-42c86826]
+==================================Routing Information===================================================
+InternetGatewayId ID: [igw-df47b0a6]
+PublicRouteTable ID: [rtb-7f466504]
+PublicSubnet1RouteTableAssociation ID: [rtbassoc-39597243]
+PublicSubnet2RouteTableAssociation ID: [rtbassoc-19587363]
+PrivateRouteTable ID: [rtb-af4b68d4]
+PrivateSubnet1RouteTableAssociation ID: [rtbassoc-7f406b05]
+PrivateSubnet2RouteTableAssociation ID: [rtbassoc-b2456ec8]
+==================================VPC Information Ended=======================================================
+==================================ELB Information STarted=======================================================
+WebServerSecurityGroup ID: [sg-4447c537]
+ELBName DNSName: [WebELB-172271317.us-east-1.elb.amazonaws.com]
+==================================ELB Information Finished=======================================================
+==================================DATABASE Information Started=======================================================
+DBEC2SecurityGroup Id: [sg-33b93b40]
+myDBSubnetGroup Name: [mydbsubnetgroup]
+=======================================================================================================
+==================================Script Started=======================================================
+==================================VPC Information=======================================================
+VPC ID: [vpc-fa435d83]
+Publicsubnet1 ID: [subnet-3123176b]
+Publicsubnet2 ID: [subnet-01d67665]
+PrivateSubnet1 ID: [subnet-77291d2d]
+PrivateSubnet2 ID: [subnet-fbda7a9f]
+==================================Routing Information===================================================
+InternetGatewayId ID: [igw-8ca751f5]
+PublicRouteTable ID: [rtb-17e7c46c]
+PublicSubnet1RouteTableAssociation ID: [rtbassoc-0719327d]
+PublicSubnet2RouteTableAssociation ID: [rtbassoc-ca052eb0]
+PrivateRouteTable ID: [rtb-b7193acc]
+PrivateSubnet1RouteTableAssociation ID: [rtbassoc-1c0c2766]
+PrivateSubnet2RouteTableAssociation ID: [rtbassoc-8c0328f6]
+==================================VPC Information Ended=======================================================
+==================================ELB Information STarted=======================================================
+WebServerSecurityGroup ID: [sg-5fde532c]
+ELBName DNSName: [WebELB-195006664.us-east-1.elb.amazonaws.com]
+==================================ELB Information Finished=======================================================
+==================================DATABASE Information Started=======================================================
+DBEC2SecurityGroup Id: [sg-65c64b16]
+myDBSubnetGroup Name: [mydbsubnetgroup]
+=======================================================================================================
+==================================Script Started=======================================================
+==================================VPC Information=======================================================
+VPC ID: [vpc-d66977af]
+Publicsubnet1 ID: [subnet-ad1125f7]
+Publicsubnet2 ID: [subnet-cfd979ab]
+PrivateSubnet1 ID: [subnet-33102469]
+PrivateSubnet2 ID: [subnet-dda101b9]
+==================================Routing Information===================================================
+InternetGatewayId ID: [igw-2fa45256]
+PublicRouteTable ID: [rtb-a1c9eada]
+PublicSubnet1RouteTableAssociation ID: [rtbassoc-9bfbd0e1]
+PublicSubnet2RouteTableAssociation ID: [rtbassoc-03e3c879]
+PrivateRouteTable ID: [rtb-01c0e37a]
+PrivateSubnet1RouteTableAssociation ID: [rtbassoc-ccecc7b6]
+PrivateSubnet2RouteTableAssociation ID: [rtbassoc-81e5cefb]
+==================================VPC Information Ended=======================================================
+==================================ELB Information STarted=======================================================
+WebServerSecurityGroup ID: [sg-0984097a]
+ELBName DNSName: [WebELB-585686616.us-east-1.elb.amazonaws.com]
+==================================ELB Information Finished=======================================================
+==================================DATABASE Information Started=======================================================
+DBEC2SecurityGroup Id: [sg-72800d01]
+myDBSubnetGroup Name: [mydbsubnetgroup]
+=======================================================================================================
+==================================Script Started=======================================================
+==================================VPC Information=======================================================
+VPC ID: []
+Publicsubnet1 ID: []
+Publicsubnet2 ID: []
+PrivateSubnet1 ID: []
+PrivateSubnet2 ID: []
+=======================================================================================================
+==================================Script Started=======================================================
+==================================VPC Information=======================================================
+VPC ID: []
+Publicsubnet1 ID: []
+Publicsubnet2 ID: []
+PrivateSubnet1 ID: []
+PrivateSubnet2 ID: []
+==================================Routing Information===================================================
+InternetGatewayId ID: []
+PublicRouteTable ID: []
+PublicSubnet1RouteTableAssociation ID: []
+PublicSubnet2RouteTableAssociation ID: []
+PrivateRouteTable ID: []
+PrivateSubnet1RouteTableAssociation ID: []
+PrivateSubnet2RouteTableAssociation ID: []
+==================================VPC Information Ended=======================================================
+==================================ELB Information STarted=======================================================
+WebServerSecurityGroup ID: []
+ELBName DNSName: []
+==================================ELB Information Finished=======================================================
+==================================DATABASE Information Started=======================================================
+DBEC2SecurityGroup Id: []
+myDBSubnetGroup Name: []
+=======================================================================================================
+==================================Script Started=======================================================
+==================================VPC Information=======================================================
+VPC ID: [vpc-c29789bb]
+Publicsubnet1 ID: [subnet-60ad993a]
+Publicsubnet2 ID: [subnet-a46cccc0]
+PrivateSubnet1 ID: [subnet-1195a14b]
+PrivateSubnet2 ID: [subnet-2269c946]
+==================================Routing Information===================================================
+InternetGatewayId ID: [igw-4ac93f33]
+PublicRouteTable ID: [rtb-63210c18]
+PublicSubnet1RouteTableAssociation ID: [rtbassoc-c8fcd6b2]
+PublicSubnet2RouteTableAssociation ID: [rtbassoc-c9fcd6b3]
+PrivateRouteTable ID: [rtb-bf2409c4]
+PrivateSubnet1RouteTableAssociation ID: [rtbassoc-cefcd6b4]
+PrivateSubnet2RouteTableAssociation ID: [rtbassoc-d3f2d8a9]
+==================================VPC Information Ended=======================================================
+==================================ELB Information STarted=======================================================
+WebServerSecurityGroup ID: [sg-b86be4cb]
+ELBName DNSName: [WebELB-1779339662.us-east-1.elb.amazonaws.com]
+==================================ELB Information Finished=======================================================
+==================================DATABASE Information Started=======================================================
+DBEC2SecurityGroup Id: [sg-9560efe6]
+myDBSubnetGroup Name: [mydbsubnetgroup]
+=======================================================================================================
+==================================Script Started=======================================================
+==================================VPC Information=======================================================
+VPC ID: [vpc-42bda33b]
+Publicsubnet1 ID: [subnet-8f98acd5]
+Publicsubnet2 ID: [subnet-406ece24]
+PrivateSubnet1 ID: [subnet-2d93a777]
+PrivateSubnet2 ID: [subnet-386fcf5c]
+==================================Routing Information===================================================
+InternetGatewayId ID: [igw-d620d6af]
+PublicRouteTable ID: [rtb-cfedc0b4]
+PublicSubnet1RouteTableAssociation ID: [rtbassoc-ccd7fdb6]
+PublicSubnet2RouteTableAssociation ID: [rtbassoc-c0d1fbba]
+PrivateRouteTable ID: [rtb-fce9c487]
+PrivateSubnet1RouteTableAssociation ID: [rtbassoc-04ab817e]
+PrivateSubnet2RouteTableAssociation ID: [rtbassoc-5dd6fc27]
+==================================VPC Information Ended=======================================================
+==================================ELB Information STarted=======================================================
+WebServerSecurityGroup ID: [sg-7ece400d]
+ELBName DNSName: [WebELB-221833841.us-east-1.elb.amazonaws.com]
+==================================ELB Information Finished=======================================================
+==================================DATABASE Information Started=======================================================
+DBEC2SecurityGroup Id: [sg-fa31be89]
+myDBSubnetGroup Name: [mydbsubnetgroup]
